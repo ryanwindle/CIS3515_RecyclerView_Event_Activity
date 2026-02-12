@@ -15,12 +15,14 @@ class MainActivity : AppCompatActivity() {
         val numbers = Array(100) {it + 1}
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val displayTextView = findViewById<TextView>(R.id.displayTextView)
-        recyclerView.layoutManager = GridLayoutManager(this, 4)
+        recyclerView.layoutManager = GridLayoutManager(this, 5)
 
-        // TODO (Step 2: Define lambda to modify displayTextView size)
+        // Step 2: Define lambda to modify displayTextView size
 
-        // Todo (Step 3: Pass lambda to adapter)
-        recyclerView.adapter = NumberDisplayAdapter(numbers)
+        // Step 3: Pass lambda to adapter
+        recyclerView.adapter = NumberDisplayAdapter(numbers) {
+            displayTextView.textSize = it.toFloat()
+        }
 
 
     }
